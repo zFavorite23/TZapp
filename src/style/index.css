@@ -1,0 +1,13 @@
+.van-nav-bar {
+    background-color: #41b5ff!important;
+}
+
+.van-nav-bar .van-nav-bar__title,
+.van-nav-bar .van-icon,
+.van-nav-bar .van-nav-bar__text {
+    color: #fff !important;
+}
+
+.van-cell:not(:last-child)::after {
+    left: 0 !important;
+}
