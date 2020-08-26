@@ -120,9 +120,9 @@ export default {
       specialId: "", // 虫害ID
       showPicker4: false,
       // 监测点
-      townList: [], // 列表
+      townList: [{ dotId: "", text: "全部" }], // 列表
       townName: "", // 监测点名称
-      townId: "", // 监测点ID
+      dotId: "", // 监测点ID
       showPicker5: false,
       // 数据
       dataList: [], // 列表
@@ -210,17 +210,17 @@ export default {
       this.showPicker4 = false;
     },
 
-    // 筛选功能---获取所有乡镇
+    // 筛选功能---获取所有监测点
     getTownAll() {
       this.$axios({
         method: "get",
-        url: "/pest/town/all"
+        url: "/pest/pest/dot/all"
       }).then(res => {
         // console.log(res);
         res.data.data.forEach(item => {
           this.townList.push({
-            townId: item.townId,
-            text: item.name
+            dotId: item.dotId,
+            text: item.location
           });
         });
       });
@@ -229,7 +229,7 @@ export default {
     // 筛选功能---监测点
     onConfirm5(value) {
       this.townName = value.text;
-      this.townId = value.townId;
+      this.dotId = value.dotId;
       this.showPicker5 = false;
     },
 
@@ -254,7 +254,8 @@ export default {
         params: {
           current: this.current, //  页码
           size: 20, // 每页显示条数
-          specialId: this.specialId // 虫害ID
+          specialId: this.specialId, // 虫害ID
+          dotId: this.dotId // 监测点ID
         }
       }).then(res => {
         // console.log(res);

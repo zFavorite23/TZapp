@@ -127,6 +127,7 @@ export default {
       }
     }
   },
+  // 离开路由
   beforeRouteLeave(to, from, next) {
     // ...每次进入历史数据 数据不缓存
     to.meta.keepAlive = false;

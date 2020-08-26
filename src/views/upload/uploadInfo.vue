@@ -3213,6 +3213,7 @@ export default {
     // 获取详情
     this.getInfo();
   },
+  // 离开路由
   beforeRouteLeave(to, from, next) {
     // ...返回历史数据 数据缓存
     to.meta.keepAlive = true;
